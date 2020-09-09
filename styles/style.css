@@ -1,0 +1,225 @@
+@import url("https://fonts.googleapis.com/css2?family=Gayathri:wght@100;700&display=swap");
+* {
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  font-family: 'Gayathri', sans-serif;
+}
+
+html, body {
+  background-color: #dbe5eb;
+  height: 100%;
+  width: 100%;
+}
+
+.hidden {
+  opacity: 0;
+  pointer-events: none;
+}
+
+header {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  margin: auto;
+  margin-top: 30vh;
+}
+
+header h1 {
+  font-size: 3rem;
+}
+
+header em {
+  margin: 0 0 1rem 0;
+  font-size: 1.5rem;
+}
+
+.searchBar {
+  height: 3rem;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-transform-origin: center center;
+          transform-origin: center center;
+  margin-bottom: 2rem;
+  width: 30%;
+  min-width: 200px;
+}
+
+.searchBar input {
+  -webkit-padding-start: 1rem;
+          padding-inline-start: 1rem;
+  width: 75%;
+  font-weight: 700;
+  font-size: 1.25rem;
+  border: 1px solid black;
+  border-right: 0;
+}
+
+.searchBar button {
+  width: 25%;
+  background-color: #3399cc;
+  color: white;
+  font-weight: 700;
+  border-top-left-radius: 0;
+  border-bottom-left-radius: 0;
+  border: 1px solid black;
+  border-left: 0;
+  font-size: 1.25rem;
+}
+
+.grid {
+  position: relative;
+  width: 80%;
+  margin: auto;
+  display: -ms-grid;
+  display: grid;
+  -ms-grid-columns: 100%;
+      grid-template-columns: 100%;
+  -webkit-column-gap: 1rem;
+          column-gap: 1rem;
+  row-gap: 1rem;
+}
+
+.book {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  width: 100%;
+  background-color: #f1eeee;
+  color: #08042b;
+  border: 1px solid black;
+  -webkit-animation: swipe forwards 1s ease-out;
+          animation: swipe forwards 1s ease-out;
+  border-radius: 5px;
+}
+
+.book img {
+  -o-object-position: center;
+     object-position: center;
+  -o-object-fit: scale-down;
+     object-fit: scale-down;
+  display: block;
+  border-right: 1px solid black;
+  border-bottom: 1px solid black;
+  margin-bottom: -1px;
+  margin-right: -1px;
+}
+
+.book .detail {
+  -ms-flex-item-align: start;
+      align-self: flex-start;
+  padding: 0.5rem;
+  padding-left: 1rem;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  width: 100%;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+}
+
+.book .detail p {
+  margin-bottom: 0.5rem;
+}
+
+.book .detail li {
+  list-style-position: inside;
+}
+
+.book .detail button {
+  background-color: #3399cc;
+  color: white;
+  width: 4rem;
+  margin-left: auto;
+}
+
+#info {
+  position: fixed;
+  z-index: 10;
+  left: 5%;
+  top: 10%;
+  bottom: 10%;
+  right: 5%;
+  -webkit-backdrop-filter: blur(12px);
+          backdrop-filter: blur(12px);
+  border-radius: 10%;
+  -webkit-transition: 1s;
+  transition: 1s;
+  background-color: rgba(7, 5, 5, 0.884);
+}
+
+#info .close {
+  color: white;
+  position: fixed;
+  top: 15%;
+  right: 7%;
+}
+
+.book:hover .description {
+  display: block;
+}
+
+@-webkit-keyframes swipe {
+  0% {
+    opacity: 0;
+    -webkit-transform: translateY(100px);
+            transform: translateY(100px);
+  }
+  100% {
+    opacity: 1;
+    -webkit-transform: translateY(0px);
+            transform: translateY(0px);
+  }
+}
+
+@keyframes swipe {
+  0% {
+    opacity: 0;
+    -webkit-transform: translateY(100px);
+            transform: translateY(100px);
+  }
+  100% {
+    opacity: 1;
+    -webkit-transform: translateY(0px);
+            transform: translateY(0px);
+  }
+}
+
+@media (min-width: 768px) {
+  .book {
+    -webkit-box-orient: horizontal;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: row;
+            flex-direction: row;
+  }
+}
+
+@media (min-width: 1080px) {
+  .grid {
+    -ms-grid-columns: 50% 50%;
+        grid-template-columns: 50% 50%;
+  }
+}
+
+@media (min-width: 1600px) {
+  .grid {
+    -ms-grid-columns: 33% 33% 33%;
+        grid-template-columns: 33% 33% 33%;
+  }
+}
+/*# sourceMappingURL=style.css.map */
