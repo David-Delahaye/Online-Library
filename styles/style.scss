@@ -112,21 +112,61 @@ header{
 }
 
 #info{
+    display: flex;
+    justify-content: center;
+    align-items: center;
     position: fixed;
     z-index: 10;
-    left: 5%;
-    top: 10%;
-    bottom: 10%;
-    right: 5%;
+    top: 0px;
+    width: 100%;
+    height: 100%;
     backdrop-filter: blur(12px);
     border-radius: 10%;
     transition: 1s;
-    background-color: rgba(7, 5, 5, 0.884);
     .close{
+        position: absolute;
+        right: 0.5rem;
+        top: 0.5rem;
+    }
+    .container{
+        display: flex;
+        flex-direction: column;
+        position: relative;
+        margin: auto;
+        padding: 1.5rem;
+        width:70%;
+        height: 80%;
+        background-color: rgb(3, 28, 37);
         color: white;
-        position: fixed;
-        top: 15%;
-        right: 7%;
+        .sidebar{
+            flex: 3;
+            display: flex;
+            flex-direction: column;
+            padding-right: 1rem;
+            margin-bottom: 2rem;
+
+            .image{
+                align-self: center;
+                margin-bottom: 0.5rem;
+                margin-bottom: 2rem;
+            }
+            .categories{
+                li{
+                    list-style-position: inside;
+                }
+            }
+            .salelink{
+                color: white;
+            }
+        }
+        .main{
+            flex: 7;
+            overflow-y: auto;
+            padding-right: 1rem;
+            .description{
+                margin-top: 1rem;
+            }
+        }
     }
 }
 
@@ -151,6 +191,11 @@ header{
 @media (min-width:768px){
     .book{
         flex-direction: row;
+    }
+    #info{
+        .container{
+            flex-direction: row;
+        }
     }
 }
 
