@@ -83,10 +83,13 @@ header em {
   font-size: 1.25rem;
 }
 
-.grid {
-  position: relative;
+main {
   width: 80%;
   margin: auto;
+}
+
+.grid {
+  position: relative;
   display: -ms-grid;
   display: grid;
   -ms-grid-columns: 100%;
@@ -94,6 +97,12 @@ header em {
   -webkit-column-gap: 1rem;
           column-gap: 1rem;
   row-gap: 1rem;
+}
+
+.grid .loader {
+  position: absolute;
+  bottom: 1rem;
+  z-index: 2;
 }
 
 .book {
@@ -304,6 +313,13 @@ header em {
   margin-left: auto;
   color: white;
   font-size: 1.5rem;
+}
+
+footer {
+  margin-top: 5rem;
+  height: 50rem;
+  background-color: black;
+  color: white;
 }
 
 @-webkit-keyframes swipe {

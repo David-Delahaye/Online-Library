@@ -1,10 +1,11 @@
-const searchInput = document.querySelector('#search')
-const searchButton = document.querySelector('#btn')
-const grid = document.querySelector('.grid')
+const searchInput = document.querySelector('#search');
+const searchButton = document.querySelector('#btn');
+const grid = document.querySelector('.grid');
+const count = document.querySelector('.count');
 
 async function retrieve (query, start){
     console.log(start);
-    const data = await fetch(`https://www.googleapis.com/books/v1/volumes?maxResults=20&filter=ebooks&startIndex=${start}&q=${query}`);
+    const data = await fetch(`https://www.googleapis.com/books/v1/volumes?maxResults=10&filter=ebooks&startIndex=${start}&q=${query}`);
     const jsonData = await data.json();
     return jsonData
 }
@@ -139,24 +140,29 @@ const close = document.querySelector('.close');
 close.addEventListener('click', function(){info.classList.add('hidden')})
 
 searchButton.addEventListener('click', async function () {
-    let books = await retrieve(searchInput.value, 0);
-    books = books.items;
+    let data = await retrieve(searchInput.value, 0);
+    books = data.items;
     grid.innerHTML = '';
     for (book of books){
         await render(book)
     }
-    if(grid.childNodes){
-        console.log('here');
+    count.innerHTML = 'Showing ' + grid.childNodes.length + ' of ' + data.totalItems + ' Books';
+    if(grid.childNodes.length <= data.totalItems){
         const loader = document.createElement('button');
         loader.innerHTML = 'load more';
+        loader.classList.add('loader')
         loader.addEventListener('click', async function (){
+            const here = window.scrollY;
+            console.log(here);
             let books = await retrieve(searchInput.value, grid.childNodes.length+1)
             books = books.items;
             for (book of books){
                 await render(book)
             }
+            window.scrollTo(0, here)
+            count.innerHTML = 'Showing ' + grid.childNodes.length + ' of ' + data.totalItems + ' Books';
         })
-        document.body.appendChild(loader)
+        document.querySelector('main').appendChild(loader)
     }
 });
 

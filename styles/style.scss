@@ -66,14 +66,22 @@ header{
     }
 }
 
+main{
+    width: 80%;
+    margin:auto;
+}
+
 .grid{
     position: relative;
-    width: 80%;
-    margin: auto;
     display: grid;
     grid-template-columns: 100%;
     column-gap: 1rem;
     row-gap: 1rem;
+    .loader{
+        position: absolute;
+        bottom: 1rem;
+        z-index: 2;
+    }
 }
 
 .book{
@@ -217,6 +225,13 @@ header{
             }
         }
     }
+}
+
+footer{
+    margin-top: 5rem;
+    height: 50rem;
+    background-color: black;
+    color: white;
 }
 
 
