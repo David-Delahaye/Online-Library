@@ -131,12 +131,10 @@ function createModal (){
     info.innerHTML = modal;
 }
 
+
 createModal();
 const container = info.querySelector('.container')
 const close = document.querySelector('.close');
-
-
-
 close.addEventListener('click', function(){info.classList.add('hidden')})
 
 searchButton.addEventListener('click', async function () {
@@ -146,23 +144,29 @@ searchButton.addEventListener('click', async function () {
     for (book of books){
         await render(book)
     }
-    count.innerHTML = 'Showing ' + grid.childNodes.length + ' of ' + data.totalItems + ' Books';
-    if(grid.childNodes.length <= data.totalItems){
-        const loader = document.createElement('button');
-        loader.innerHTML = 'load more';
-        loader.classList.add('loader')
-        loader.addEventListener('click', async function (){
-            const here = window.scrollY;
-            console.log(here);
-            let books = await retrieve(searchInput.value, grid.childNodes.length+1)
-            books = books.items;
-            for (book of books){
-                await render(book)
-            }
-            window.scrollTo(0, here)
-            count.innerHTML = 'Showing ' + grid.childNodes.length + ' of ' + data.totalItems + ' Books';
-        })
-        document.querySelector('main').appendChild(loader)
-    }
+    handleLoader(data.totalItems)
 });
+
+
+function handleLoader (total){
+    const loader = document.querySelector('.loader');
+    count.innerHTML = 'Showing ' + grid.childNodes.length + ' of ' + total;
+    loader.onclick = () => {load(loader, total)}
+}
+
+
+async function load (loader, total){
+    const here = window.scrollY;
+    let books = await retrieve(searchInput.value, grid.childNodes.length+1)
+    books = books.items;
+    for (book of books){
+        await render(book)
+    }
+    window.scrollTo(0, here)
+    count.innerHTML = 'Showing ' + grid.childNodes.length + ' of ' + total;
+    if(grid.childNodes.length <= total){
+        loader.innerHTML = 'load MOREE'
+    }
+}
+
 
