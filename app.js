@@ -144,28 +144,34 @@ searchButton.addEventListener('click', async function () {
     for (book of books){
         await render(book)
     }
-    handleLoader(data.totalItems)
+    const loader = new Loader(document.querySelector('.loader'), grid.childNodes.length, data.totalItems);
 });
 
-
-function handleLoader (total){
-    const loader = document.querySelector('.loader');
-    count.innerHTML = 'Showing ' + grid.childNodes.length + ' of ' + total;
-    loader.onclick = () => {load(loader, total)}
-}
-
-
-async function load (loader, total){
-    const here = window.scrollY;
-    let books = await retrieve(searchInput.value, grid.childNodes.length+1)
-    books = books.items;
-    for (book of books){
-        await render(book)
+class Loader {
+    constructor(root, current, total) {
+        this.root = root;
+        this.currentItems = current;
+        this.totalItems = total;
+        this.root.innerHTML = '<button>Load More</button>'
+        this.root.onclick = () => {this.load()}
+        count.innerHTML = 'Showing ' + this.currentItems + ' of ' + this.totalItems;
     }
-    window.scrollTo(0, here)
-    count.innerHTML = 'Showing ' + grid.childNodes.length + ' of ' + total;
-    if(grid.childNodes.length <= total){
-        loader.innerHTML = 'load MOREE'
+
+    load = async () => {
+        const here = window.scrollY;
+        let books = await retrieve(searchInput.value, grid.childNodes.length+1)
+        books = books.items;
+        for (book of books){
+            await render(book)
+        }
+        this.currentItems = grid.childNodes.length
+        count.innerHTML = 'Showing ' + this.currentItems + ' of ' + this.totalItems;
+        window.scrollTo(0, here)
+        if(this.currentItems <= this.totalItems){
+            this.root.innerHTML = '<button>Load More</button>'
+        }else{
+            this.root.innerHTML = ''
+        }
     }
 }
 
