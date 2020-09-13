@@ -169,44 +169,71 @@ main {
   white-space: nowrap;
 }
 
-.book:nth-child(1) {
+.book:nth-child(1n) {
+  -webkit-animation-delay: 0.05s;
+          animation-delay: 0.05s;
+}
+
+.book:nth-child(2n) {
   -webkit-animation-delay: 0.1s;
           animation-delay: 0.1s;
 }
 
-.book:nth-child(2) {
+.book:nth-child(3n) {
+  -webkit-animation-delay: 0.15s;
+          animation-delay: 0.15s;
+}
+
+.book:nth-child(4n) {
   -webkit-animation-delay: 0.2s;
           animation-delay: 0.2s;
 }
 
-.book:nth-child(3) {
+.book:nth-child(5n) {
+  -webkit-animation-delay: 0.25s;
+          animation-delay: 0.25s;
+}
+
+.book:nth-child(6n) {
+  -webkit-animation-delay: 0.3s;
+          animation-delay: 0.3s;
+}
+
+.book:nth-child(7n) {
+  -webkit-animation-delay: 0.35s;
+          animation-delay: 0.35s;
+}
+
+.book:nth-child(8n) {
+  -webkit-animation-delay: 0.4s;
+          animation-delay: 0.4s;
+}
+
+.book:nth-child(9n) {
+  -webkit-animation-delay: 0.45s;
+          animation-delay: 0.45s;
+}
+
+.book:nth-child(10n) {
   -webkit-animation-delay: 0.5s;
           animation-delay: 0.5s;
 }
 
-.book:nth-child(4) {
-  -webkit-animation-delay: 0.8s;
-          animation-delay: 0.8s;
+.loader {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  height: 5rem;
 }
 
-.book:nth-child(5) {
-  -webkit-animation-delay: 1s;
-          animation-delay: 1s;
-}
-
-.book:nth-child(6), .book:nth-child(7), .book:nth-child(8), .book:nth-child(9), .book:nth-child(10), .book:nth-child(11) {
-  -webkit-animation-delay: 1.3s;
-          animation-delay: 1.3s;
-}
-
-.book:nth-child(12), .book:nth-child(13), .book:nth-child(14), .book:nth-child(15), .book:nth-child(16), .book:nth-child(17) {
-  -webkit-animation-delay: 1.5s;
-          animation-delay: 1.5s;
-}
-
-.book:nth-child(18), .book:nth-child(19), .book:nth-child(20) {
-  -webkit-animation-delay: 2s;
-          animation-delay: 2s;
+.loader button {
+  border: 2px solid #3399cc;
 }
 
 #info {
