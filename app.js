@@ -5,7 +5,7 @@ const count = document.querySelector('.count');
 
 async function retrieve (query, start){
     console.log(start);
-    const data = await fetch(`https://www.googleapis.com/books/v1/volumes?maxResults=10&filter=ebooks&startIndex=${start}&q=${query}`);
+    const data = await fetch(`https://www.googleapis.com/books/v1/volumes?maxResults=10&filter=paid-ebooks&startIndex=${start}&q=${query}`);
     const jsonData = await data.json();
     return jsonData
 }

@@ -10,7 +10,11 @@
 html, body {
   background-color: #dbe5eb;
   height: 100%;
-  width: 100%;
+}
+
+.page {
+  min-height: 100%;
+  position: relative;
 }
 
 .hidden {
@@ -86,6 +90,7 @@ header em {
 main {
   width: 80%;
   margin: auto;
+  padding-bottom: 15rem;
 }
 
 .grid {
@@ -343,10 +348,23 @@ main {
 }
 
 footer {
-  margin-top: 5rem;
-  height: 50rem;
-  background-color: black;
+  font-size: 1.5rem;
+  height: 10rem;
+  background-color: #1c2a31;
   color: white;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  padding: 1rem 10rem;
+  position: absolute;
+  bottom: 0px;
+  width: 100%;
 }
 
 @-webkit-keyframes swipe {

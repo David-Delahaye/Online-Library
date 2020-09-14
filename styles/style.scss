@@ -10,7 +10,11 @@
 html, body{
     background-color: hsl(200, 27%, 89%);
     height: 100%;
-    width: 100%;
+}
+
+.page{
+    min-height: 100%;
+    position: relative;
 }
 
 .hidden{
@@ -69,6 +73,7 @@ header{
 main{
     width: 80%;
     margin:auto;
+    padding-bottom: 15rem;
 }
 
 .grid{
@@ -127,31 +132,6 @@ main{
         }
     }
 }
-
-// .book:nth-child(1){
-//     animation-delay: 0.1s;
-// }
-// .book:nth-child(2){
-//     animation-delay: 0.2s;
-// }
-// .book:nth-child(3){
-//     animation-delay: 0.5s;
-// }
-// .book:nth-child(4){
-//     animation-delay: 0.8s;
-// }
-// .book:nth-child(5){
-//     animation-delay: 1s;
-// }
-// .book:nth-child(6), .book:nth-child(7), .book:nth-child(8), .book:nth-child(9), .book:nth-child(10), .book:nth-child(11){
-//     animation-delay: 1.3s;
-// }
-// .book:nth-child(12), .book:nth-child(13), .book:nth-child(14), .book:nth-child(15), .book:nth-child(16), .book:nth-child(17){
-//     animation-delay: 1.5s;
-// }
-// .book:nth-child(18), .book:nth-child(19), .book:nth-child(20){
-//     animation-delay: 2s;
-// }
 
 @for $j from 1 through 10{
     .book:nth-child(#{$j}n){
@@ -243,13 +223,19 @@ main{
     }
 }
 
-footer{
-    margin-top: 5rem;
-    height: 50rem;
-    background-color: black;
+footer {
+    font-size: 1.5rem;
+    height: 10rem;
+    background-color: hsl(200, 27%, 15%);
     color: white;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1rem 10rem;
+    position: absolute;
+    bottom: 0px;
+    width: 100%;
 }
-
 
 @keyframes swipe{
     0%{
