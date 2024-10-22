@@ -29,12 +29,10 @@ async function render (item){
     <img class="image">
     <div class="detail">
         <p class="title"></p>
-        <p class="author"><b>Author${s(item.volumeInfo.authors)}: </b></p>
+        <p class="author">${item.volumeInfo.authors}</p>
         <p class="date"><b>Date Published: </b></p>
-        <p><b>Categories:</b></p>
         <ul class = "categories">
         </ul>
-        <button class = "learn">Learn More</button>
     </div>
     `
 
@@ -44,7 +42,6 @@ async function render (item){
     const author = book.querySelector('.author');
     const image = book.querySelector('.image');
     const categories = book.querySelector('.categories')
-    const learn = book.querySelector('.learn')
     title.innerHTML += `<b>${item.volumeInfo.title.substring(0,50)}</b>` 
     author.innerHTML += item.volumeInfo.authors || 'N/A'
     date.innerHTML += item.volumeInfo.publishedDate || 'N/A'
@@ -60,7 +57,7 @@ async function render (item){
         categories.innerHTML += `<li>N/A</li>`
     }
 
-    learn.addEventListener('click', function(){detail(book.id)});
+    book.addEventListener('click', function(){detail(book.id)});
 }
 
 async function detail(id){
